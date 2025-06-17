@@ -7,7 +7,9 @@
 -Project Photos<br><br>
 
 ## Project Overview
-This lightweight data engineering project takes a numerical vector object and converts each value in the vector to the best bit representation. <br><br>
+This lightweight data engineering project takes a numerical vector object and converts each value in the vector to the smallest viable bit representation. <br><br>
+
+This project functions very similar to the bit_width class inside the std namespace.<br><br>
 
 Converting numbers to their most efficient representation is very helpful for low-latency systems that require fast data conversion and manipulation methods. Efficient use of the CPU register ensures the lowest level of efficiency because every single bit of information is being processed in the most optimal way possible. <br><br>
 
@@ -16,9 +18,12 @@ If a 16 bit integer is fed into a 64 bit capacity CPU register, the register has
 This is memory inefficient, and if that 16 bit value is not converted to a 64 bit representation, the program will incrementally add latency over many function calls and object instantiations. <br><br>
 
 ## Use Cases
-This project can be used in its current form to take inputs from DLLs or the console, or can be built as a Python Module to complement a low latency data engineering pipeline. <br><br> 
+This project can be used in its current form to take inputs from DLLs or the console, or can be built as a Python Module to complement a low latency data engineering pipeline. This project's entire purpose is to "retrofit" the std::bit_width class to older versions of C++ that are commonly used in low-level and systems programming.<br><br> 
 
 ## Project Weaknesses
-This program only uses unsigned integers. Functionality will be shortly added to detect negative numbers and optimize the memory of the negative numbers<br><br>
+This program only uses unsigned integers. Functionality will be eventually added to detect negative numbers and optimize the memory of the negative numbers.<br>
+
+As of now, this has only been ran on C++17. However, it should work up to C++11. C++11 first introduced fixed bit width integers.
+<br><br>
 
 ## Project Photos <br><br>
