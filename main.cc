@@ -21,7 +21,7 @@ std::vector<int> inputArrayGenerator() {
 int main() {
    CPUUtilities::CPUOptimizer optimizer;
    std::vector<int> inputData = inputArrayGenerator();
-   optimizer.registerSizeConverter(inputData);
+   
    std::cout << "Register size: " << optimizer.getRegisterSize() << std::endl;
 
    std::vector<uint_least8_t> optimized = optimizer.registerSizeConverter(inputData);
