@@ -51,6 +51,9 @@ namespace CPUUtilities{
     #else
         for (size_t i = 0; i < input.size(); ++i) {
             optimizedOutput[i] = static_cast<uint_least8_t>(input[i]);
+            // Debugging Purposes only.
+            std::cout << "Original: " << static_cast<int>(input[i]) << ", Converted: " 
+            << static_cast<int>(optimizedOutput[i]) << std::endl;
         }
     #endif
 
@@ -58,6 +61,10 @@ namespace CPUUtilities{
         for (size_t i = 0; i < optimizedOutput.size(); i += cache_alignment / sizeof(uint_least8_t)) {
             std::atomic_thread_fence(std::memory_order_acquire);
         }
+        
+        // Debugging Purposes only.
+        std::cout << "Register size detected: " << RegisterDetector() << " bits" << std::endl;
+
 
         return optimizedOutput;
     }
