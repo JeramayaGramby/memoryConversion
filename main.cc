@@ -20,10 +20,13 @@ std::vector<int> inputArrayGenerator() {
 
 int main() {
    CPUUtilities::CPUOptimizer optimizer;
-   optimizer.registerSizeConverter(inputArrayGenerator());
+   std::vector<int> inputData = inputArrayGenerator();
+   optimizer.registerSizeConverter(inputData);
    std::cout << "Register size: " << optimizer.getRegisterSize() << std::endl;
 
-   for (const auto& value : optimizer.registerSizeConverter(inputArrayGenerator())) {
+   std::vector<uint_least8_t> optimized = optimizer.registerSizeConverter(inputData);
+   
+   for (const auto& value : optimized) {
        std::cout << static_cast<int>(value) << " ";
    }
    std::cout << std::endl;
