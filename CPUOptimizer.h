@@ -2,9 +2,16 @@
 #define CONFIG_H
 
 // Header Imports
-#include <string>
+#include <cstddef>
+#include <limits>
+#include <stdexcept>
+#include <cstdint>
+#include <immintrin.h>  // AVX/SSE SIMD instructions
 #include <vector>
-#include <cstdint> 
+#include <new>  // For aligned memory allocation
+#include <iostream>
+#include <vector>
+#include <atomic>  // Required for interference size
 
 // Meat and Potatoes
 
