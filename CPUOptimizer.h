@@ -28,7 +28,7 @@ namespace CPUUtilities{
         std::string getRegisterSize() const noexcept;
 
         template<typename T>
-        std::vector<uint_least8_t> registerSizeConverter(const std::vector<T>& input) const {
+        inline std::vector<uint_least8_t> registerSizeConverter(const std::vector<T>& input) const {
             std::vector<uint_least8_t> optimizedOutput(input.size());
 
             std::cout << "Processing vector of size: " << input.size() << std::endl;
