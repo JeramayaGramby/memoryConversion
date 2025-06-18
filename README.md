@@ -23,7 +23,9 @@ This project can be used in its current form to take inputs from DLLs or the con
 ## Project Weaknesses
 This program only uses unsigned integers. Functionality will be eventually added to detect negative numbers and optimize the memory of the negative numbers.<br>
 
-As of now, this has only been ran on C++17. However, it should work up to C++11. C++11 first introduced fixed bit width integers.
+As of now, this has only been ran on C++17. However, it should work up to C++11. C++11 first introduced fixed bit width integers.<br>
+
+PLEASE RUN "g++ -std=c++17 -fdiagnostics-color=always -fexceptions -g CPUOptimizer.cc main.cc -o main.exe" to create an executable
 <br><br>
 
 ## Project Photos <br><br>
