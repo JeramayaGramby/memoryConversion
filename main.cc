@@ -11,6 +11,11 @@ std::vector<int> inputArrayGenerator() {
 
     std::cout << "Enter integers (type -1 to stop): ";
     while (std::cin >> value && value != -1) {
+        if (value > std::numeric_limits<uint_least16_t>::max()) {
+            std::cerr << "Error: value " << value
+                      << " exceeds 16-bit representation. Terminating.\n";
+            std::exit(EXIT_FAILURE);
+        }
         input.push_back(value);
     }
 
