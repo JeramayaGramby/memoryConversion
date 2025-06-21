@@ -30,8 +30,22 @@ namespace CPUUtilities{
         template<typename T>
         inline std::vector<uint_least16_t> registerSizeConverter(const std::vector<T>& input) const noexcept {
             std::vector<uint_least16_t> optimizedOutput(input.size());
+            // Check if the input vector is empty
+        if (input.empty()) {
+                std::cerr << "Error: Input vector is empty. Terminating.\n";
+                std::exit(EXIT_FAILURE);
+        }
 
             std::cout << "Processing vector of size: " << input.size() << std::endl;
+        
+        // Check if the input values fit within the 16-bit unsigned integer range
+        for (const auto& val : input) {
+            if (val > std::numeric_limits<uint_least16_t>::max()) {
+                std::cerr << "Error: value " << val
+                  << " exceeds 16-bit representation. Terminating.\n";
+                std::exit(EXIT_FAILURE);
+            }
+        }
 
     #if defined(__AVX2__)
             std::cout << "Using AVX2 optimization..." << std::endl;
@@ -67,6 +81,7 @@ namespace CPUUtilities{
             std::cout << "Using scalar conversion..." << std::endl;
             // Fallback to scalar conversion if no SIMD support is available
             for (size_t i = 0; i < input.size(); ++i) {
+
                 optimizedOutput[i] = static_cast<uint_least16_t>(input[i]);
                 // Debugging Purposes only.
                 std::cout << "Original: " << static_cast<int>(input[i]) << ", Converted: " 
