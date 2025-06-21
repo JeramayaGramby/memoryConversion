@@ -27,4 +27,5 @@ std::string CPUUtilities::CPUOptimizer::getRegisterSize() const noexcept {
     }
 }
 
+template std::vector<uint_least16_t> CPUUtilities::CPUOptimizer::registerSizeConverter<int>(const std::vector<int>&) const noexcept;
 

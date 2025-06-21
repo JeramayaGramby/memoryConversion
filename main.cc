@@ -24,7 +24,7 @@ int main() {
    
    std::cout << "Register size: " << optimizer.getRegisterSize() << std::endl;
 
-   std::vector<uint_least8_t> optimized = optimizer.registerSizeConverter(inputData);
+   std::vector<uint_least16_t> optimized = optimizer.registerSizeConverter(inputData);
    
    for (const auto& value : optimized) {
        std::cout << static_cast<int>(value) << " ";
